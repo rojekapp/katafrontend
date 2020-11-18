@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/navigation_autotext">
+
+    <fragment
+        android:id="@+id/navigation_mutasi"
+        android:name="com.paimon.katahack.ui.fragment.mutasi.MutasiFragment"
+        android:label="mutasi_fragment"
+        tools:layout="@layout/mutasi_fragment" />
+    <fragment
+        android:id="@+id/navigation_status"
+        android:name="com.paimon.katahack.ui.fragment.transaction.StatusFragment"
+        android:label="status_fragment"
+        tools:layout="@layout/status_fragment">
+        <action
+            android:id="@+id/action_navigation_status_to_statusDetailFragment"
+            app:destination="@id/statusDetailFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_autotext"
+        android:name="com.paimon.katahack.ui.fragment.autotext.AutotextFragment"
+        android:label="autotext_fragment"
+        tools:layout="@layout/autotext_fragment" />
+    <fragment
+        android:id="@+id/statusDetailFragment"
+        android:name="com.paimon.katahack.ui.fragment.transaction.StatusDetailFragment"
+        android:label="status_detail_fragment"
+        tools:layout="@layout/status_detail_fragment">
+        <argument
+            android:name="invoice"
+            app:argType="com.paimon.katahack.model.InvoiceData" />
+    </fragment>
+</navigation>

@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:padding="3dp">
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:background="@null"
+            android:drawableStart="@drawable/ic_back" />
+
+        <Button
+            android:id="@+id/btn_first"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/btn_back"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableTop="@drawable/ic_assignment_white_24dp"
+            android:text="@string/invoice"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+
+        <Button
+            android:id="@+id/btn_second"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/btn_first"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableTop="@drawable/ic_delivery"
+            android:text="@string/ongkir"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_third"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableTop="@drawable/ic_format_list_bulleted_black_24dp"
+            android:text="@string/autotext"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_four"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:drawableTop="@drawable/ic_transaction_key"
+            android:text="@string/transaction"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_keyboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/relativeInvoice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:background="@color/white">
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/et_invoice_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nama Pelanggan"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="Nama Pelanggan"
+            app:met_floatingLabelTextColor="#0016ff"
+            app:met_floatingLabelTextSize="16sp" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/et_invoice_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_invoice_name"
+            android:text="Nomor Pelanggan"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="Nomer Telepon"
+            app:met_floatingLabelTextColor="#0016ff"
+            app:met_floatingLabelTextSize="16sp" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/et_harga_barang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_invoice_phone"
+            android:text="Total Harga"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="Harga Barang"
+            app:met_floatingLabelTextColor="#0016ff"
+            app:met_floatingLabelTextSize="16sp" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/et_lokasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_harga_barang"
+            android:text="Lokasi"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="lokasi"
+            app:met_floatingLabelTextColor="#0016ff"
+            app:met_floatingLabelTextSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_kuantiti"
+            android:layout_width="wrap_content"
+            android:textColor="#0016ff"
+            android:layout_marginBottom="8dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_lokasi"
+            android:text="Quantity"/>
+
+        <ImageButton
+            android:id="@+id/btnMinus"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_below="@id/tv_kuantiti"
+            android:background="@null"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/bg_btn_minus" />
+
+        <TextView
+            android:id="@+id/tv_Quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_below="@id/tv_kuantiti"
+            android:layout_toRightOf="@+id/btnMinus"
+            android:textSize="16dp"
+            android:textColor="@color/black"
+            android:text="2" />
+
+        <ImageButton
+            android:id="@+id/btn_plus"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_below="@id/tv_kuantiti"
+            android:layout_marginRight="16dp"
+            android:layout_toRightOf="@id/tv_Quantity"
+            android:background="@null"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/bg_btn_plus" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnMinus">
+            <RadioButton
+                android:id="@+id/radioBtn1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="BCA"
+                android:textColor="@color/black"/>
+            <RadioButton
+                android:id="@+id/radioBtn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="BRI" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btn_save_invoice"
+            android:layout_width="200dp"
+            android:layout_height="35dp"
+            android:layout_below="@id/radioGroup"
+            android:layout_marginTop="8dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/rounded_blue_background"
+            android:hint="@string/submit"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_invoice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/edt_invoice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/copy_your_invoice_here"
+            android:textColor="@color/black"
+            android:textColorHint="#d4d4d4"
+            app:layout_constraintBottom_toTopOf="@id/btn_invoice"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_invoice"
+            android:layout_width="200dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_blue_background"
+            android:hint="@string/submit"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edt_invoice" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:id="@+id/cl_ongkir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_margin="16dp"
+       >
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/et_berat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2000"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="Berat Benda (g)"
+            app:met_floatingLabelTextColor="#0016ff"
+            app:met_floatingLabelTextSize="16sp" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/et_asal_kota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_berat"
+            android:text="Nomor Pelanggan"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="Alamat Asal"
+            app:met_floatingLabelTextColor="#0016ff"
+            app:met_floatingLabelTextSize="16sp" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/et_tujuan_kota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_asal_kota"
+            android:text="Total Harga"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="Alamat Tujuan"
+            app:met_floatingLabelTextColor="#0016ff"
+            app:met_floatingLabelTextSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_ongkir"
+            android:layout_width="200dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_blue_background"
+            android:hint="@string/submit"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_below="@id/et_tujuan_kota"/>
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_autotext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.AppCompat"
+        android:visibility="gone">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_autotext"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/list_autotext" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_transaction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_transaction"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/list_transaction" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <android.inputmethodservice.KeyboardView
+        android:id="@+id/keyboard_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:keyPreviewLayout="@layout/key_preview" />
+</LinearLayout>

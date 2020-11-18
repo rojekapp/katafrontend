@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">katahack</string>
+    <string name="invoice">Invoice</string>
+    <string name="ongkir">Ongkir</string>
+    <string name="autotext">Autotext</string>
+    <string name="transaction">Transaction</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="copy_your_invoice_here">copy your invoice here</string>
+    <string name="copy_invoice">Thank you for shopping with us! Order from eztap stuff\n\nProduk :\n%sx Masker\n\nTotal harga barang : Rp%s\nOngkos Kirim : Rp10.000\nTotal yang harus dibayarkan : %s\n\nPembayaran : BCA 532 atas nama muh Harap mengirimkan foto bukti transfer kepada kami, Thank you so much</string>
+    <string name="submit">Submit</string>
+    <string name="copied">copied</string>
+    <string name="status">Transaksi</string>
+    <string name="mutasi">Mutasi</string>
+    <string name="belum_bayar">Belum Bayar</string>
+    <string name="sudah_bayar">Sudah Bayar</string>
+    <string name="siap_kirim">Siap Kirim</string>
+    <string name="telah_kirim">Telah Dikirim</string>
+    <string name="nomor_rekening">Nomor Rekening :</string>
+    <string name="kredit">Kredit</string>
+    <string-array name="kota">
+        <item>Yogyakarta</item>
+        <item>Jakarta</item>
+        <item>Bogor</item>
+        <item>Surabaya</item>
+        <item>Bandung</item>
+    </string-array>
+    <string-array name="kota_id">
+        <item>501</item>
+        <item>152</item>
+        <item>79</item>
+        <item>444</item>
+        <item>23</item>
+    </string-array>
+    <string-array name="berat">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+</resources>
