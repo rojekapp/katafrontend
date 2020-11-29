@@ -271,7 +271,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/et_berat"
-            android:text="Nomor Pelanggan"
+            android:hint="Asal Kota"
             app:met_floatingLabel="highlight"
             app:met_floatingLabelText="Alamat Asal"
             app:met_floatingLabelTextColor="#0016ff"
@@ -282,11 +282,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/et_asal_kota"
-            android:text="Total Harga"
             app:met_floatingLabel="highlight"
+            android:hint="Tujuan Kota"
             app:met_floatingLabelText="Alamat Tujuan"
             app:met_floatingLabelTextColor="#0016ff"
             app:met_floatingLabelTextSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_ongkir_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:layout_below="@id/et_tujuan_kota"
+            />
 
         <Button
             android:id="@+id/btn_ongkir"
@@ -299,7 +310,9 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:layout_below="@id/et_tujuan_kota"/>
+            android:layout_below="@id/tv_ongkir_total"/>
+
+
     </RelativeLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

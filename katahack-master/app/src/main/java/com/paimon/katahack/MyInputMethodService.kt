@@ -212,7 +212,7 @@ class MyInputMethodService : InputMethodService(), KeyboardView.OnKeyboardAction
 
             root?.btn_ongkir?.setOnClickListener {
                 apiClient.getApiService().ongkir(
-                    OngkirRequest(root?.et_berat?.text.toString(),"Jl. Jend. Sudirman No.40, Kotabaru, Kec. Gondokusuman, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55224","root?.et_asal_kota?.text.toString()")
+                    OngkirRequest(root?.et_berat?.text.toString(),"Jl. Jend. Sudirman No.40, Kotabaru, Kec. Gondokusuman, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55224","Jl. Jend. Sudirman No.40, Kotabaru, Kec. Gondokusuman, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55224")
                 )
                     .enqueue(object : Callback<OngkirResponse> {
                         override fun onFailure(call: Call<OngkirResponse>, t: Throwable) {
@@ -225,7 +225,8 @@ class MyInputMethodService : InputMethodService(), KeyboardView.OnKeyboardAction
                             response: Response<OngkirResponse>
                         ) {
                             val responseInvoice = response.body()
-
+                                val value = responseInvoice?.rajaongkir?.results?.get(0)!!.costs?.get(0)!!.cost?.get(0)!!.value.toString()
+                                root?.tv_ongkir_total?.text = value
                         }
                     })
 

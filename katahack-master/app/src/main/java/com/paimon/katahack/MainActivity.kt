@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
         nav_view.setupWithNavController(navController)
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id == R.id.navigation_status ||
-                destination.id == R.id.navigation_mutasi ||
                 destination.id == R.id.navigation_autotext
             ) {
                 nav_view.visibility = View.VISIBLE

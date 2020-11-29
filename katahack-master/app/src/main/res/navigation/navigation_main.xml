@@ -6,15 +6,10 @@
     app:startDestination="@id/navigation_autotext">
 
     <fragment
-        android:id="@+id/navigation_mutasi"
-        android:name="com.paimon.katahack.ui.fragment.mutasi.MutasiFragment"
-        android:label="mutasi_fragment"
-        tools:layout="@layout/mutasi_fragment" />
-    <fragment
         android:id="@+id/navigation_status"
-        android:name="com.paimon.katahack.ui.fragment.transaction.StatusFragment"
+        android:name="com.paimon.katahack.ui.fragment.transaksi.TransaksiFragment"
         android:label="status_fragment"
-        tools:layout="@layout/status_fragment">
+        tools:layout="@layout/fragment_transaksi">
         <action
             android:id="@+id/action_navigation_status_to_statusDetailFragment"
             app:destination="@id/statusDetailFragment" />
