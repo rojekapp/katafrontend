@@ -82,15 +82,32 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_amount_transaction" />
 
+        <Button
+            android:id="@+id/btn_konfirmasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_blue_background"
+            android:text="Konfirmasi Pembayaran"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_status_transaction" />
+
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_marginTop="5dp"
             android:background="@color/grey"
-            app:layout_constraintBottom_toBottomOf="@id/tv_status_transaction"
+            app:layout_constraintBottom_toBottomOf="@id/btn_konfirmasi"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_status_transaction" />
+            app:layout_constraintTop_toBottomOf="@id/btn_konfirmasi" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -2,7 +2,6 @@ package com.paimon.katahack
 
 import android.content.ClipData
 import android.content.ClipboardManager
-import android.content.Intent
 import android.inputmethodservice.InputMethodService
 import android.inputmethodservice.Keyboard
 import android.inputmethodservice.KeyboardView
@@ -11,12 +10,10 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.*
-import androidx.appcompat.widget.AppCompatSpinner
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chivorn.smartmaterialspinner.SmartMaterialSpinner
-import com.google.gson.JsonObject
 import com.paimon.katahack.dbLocal.TransaksiDao
 import com.paimon.katahack.dbLocal.TransaksiRoomDatabase
 import com.paimon.katahack.invoiceAPI.ApiClient
@@ -29,11 +26,13 @@ import com.paimon.katahack.model.Transaction
 import com.paimon.katahack.model.ongkir.Ongkir
 import com.paimon.katahack.modelOngkir.OngkirRequest
 import com.paimon.katahack.modelOngkir.OngkirResponse
+import com.paimon.katahack.modelOngkir.ResultsItem
 import com.paimon.katahack.presenter.MainPresenter
 import com.paimon.katahack.presenter.MainRepository
 import com.paimon.katahack.transaksiInvoice.TransaksiAdapter
 import com.paimon.katahack.transaksiInvoice.TransaksiModel
 import com.paimon.katahack.ui.adapter.AutotextAdapter
+import com.paimon.katahack.ui.adapter.OngkirAdapter
 import com.paimon.katahack.ui.adapter.TransactionAdapter
 import com.paimon.katahack.view.CreateInvoiceView
 import com.paimon.katahack.view.InvoiceView
@@ -45,7 +44,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import timber.log.Timber
-import java.util.*
+import kotlin.collections.ArrayList
 
 
 class MyInputMethodService : InputMethodService(), KeyboardView.OnKeyboardActionListener,
@@ -72,6 +71,7 @@ class MyInputMethodService : InputMethodService(), KeyboardView.OnKeyboardAction
     private lateinit var clAutotext: ConstraintLayout
     private lateinit var rlSubmitInvoice: RelativeLayout
     private lateinit var clTransaction: ConstraintLayout
+    private lateinit var clOngkirList: ConstraintLayout
     private lateinit var realm: Realm
     private var berat = 0
     private var destinationId = "50"
@@ -88,6 +88,7 @@ class MyInputMethodService : InputMethodService(), KeyboardView.OnKeyboardAction
         keyboardView = root?.keyboard_view!!
         clInvoice = root?.cl_invoice!!
         clOngkir = root?.cl_ongkir!!
+        clOngkirList = root?.cl_ongkir_list!!
 
 
         rlSubmitInvoice = root?.relativeInvoice!!
@@ -108,6 +109,7 @@ class MyInputMethodService : InputMethodService(), KeyboardView.OnKeyboardAction
             rlSubmitInvoice.visibility = View.GONE
             clAutotext.visibility = View.GONE
             clTransaction.visibility = View.GONE
+            clOngkirList.visibility = View.GONE
         }
 
         root?.btn_first?.setOnClickListener {
@@ -117,6 +119,7 @@ class MyInputMethodService : InputMethodService(), KeyboardView.OnKeyboardAction
             rlSubmitInvoice.visibility = View.GONE
             clAutotext.visibility = View.GONE
             clTransaction.visibility = View.GONE
+            clOngkirList.visibility = View.GONE
 
 
 //            root?.edt_invoice?.setOnTouchListener { v, event ->
@@ -180,7 +183,7 @@ class MyInputMethodService : InputMethodService(), KeyboardView.OnKeyboardAction
                                     applicationContext,
                                     ClipboardManager::class.java
                                 )
-                                val clip = ClipData.newPlainText("invoice", getString(R.string.copy_invoice, quantity.toString(),(Integer.parseInt(root?.et_harga_barang?.text.toString())*quantity).toString(),(Integer.parseInt(root?.et_harga_barang?.text.toString())*quantity+10000).toString()))
+                                val clip = ClipData.newPlainText("invoice", getString(R.string.copy_invoice, quantity.toString(),root?.et_invoice_name?.text.toString(),root?.et_lokasi?.text.toString(),root?.et_invoice_phone?.text.toString(),(Integer.parseInt(root?.et_harga_barang?.text.toString())*quantity).toString(),(Integer.parseInt(root?.et_harga_barang?.text.toString())*quantity+10000).toString()))
                                 clipboard!!.setPrimaryClip(clip)
                                 toast("Invoice Copied")
                             }
@@ -200,6 +203,8 @@ class MyInputMethodService : InputMethodService(), KeyboardView.OnKeyboardAction
             rlSubmitInvoice.visibility = View.GONE
             clAutotext.visibility = View.GONE
             clTransaction.visibility = View.GONE
+            clOngkirList.visibility = View.GONE
+
 
     /*        val body = JsonObject()
             body.addProperty("asal", "3")
@@ -227,6 +232,9 @@ class MyInputMethodService : InputMethodService(), KeyboardView.OnKeyboardAction
                             val responseInvoice = response.body()
                                 val value = responseInvoice?.rajaongkir?.results?.get(0)!!.costs?.get(0)!!.cost?.get(0)!!.value.toString()
                                 root?.tv_ongkir_total?.text = value
+
+                            clOngkirList.visibility = View.VISIBLE
+                            setupRecyclerViewOngkir(responseInvoice?.rajaongkir?.results)
                         }
                     })
 
@@ -240,6 +248,7 @@ class MyInputMethodService : InputMethodService(), KeyboardView.OnKeyboardAction
             rlSubmitInvoice.visibility = View.GONE
             clInvoice.visibility = View.GONE
             clTransaction.visibility = View.GONE
+            clOngkirList.visibility = View.GONE
             val adapter = AutotextAdapter()
             adapter.submitList(
                 realm.where(Autotext::class.java).findAll()
@@ -254,6 +263,7 @@ class MyInputMethodService : InputMethodService(), KeyboardView.OnKeyboardAction
             clOngkir.visibility = View.GONE
             clAutotext.visibility = View.GONE
             clInvoice.visibility = View.GONE
+            clOngkirList.visibility = View.GONE
             getNotesData()
         }
 
@@ -279,6 +289,18 @@ class MyInputMethodService : InputMethodService(), KeyboardView.OnKeyboardAction
             })
             layoutManager =
                 LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false)
+        }
+    }
+
+
+    private fun setupRecyclerViewOngkir(listItems: ArrayList<ResultsItem?>) {
+        root?.rv_ongkir_list?.apply {
+            adapter = OngkirAdapter(listItems, object : OngkirAdapter.NoteListener {
+                override fun OnItemClicked(note: ResultsItem) {
+                }
+            })
+            layoutManager =
+                LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false)
         }
     }
 
@@ -426,7 +448,6 @@ class MyInputMethodService : InputMethodService(), KeyboardView.OnKeyboardAction
 
             dao.insert(trasaksi)
         } else {
-
             dao.update(trasaksi)
         }
 

@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.paimon.katahack.R
 
@@ -23,6 +24,11 @@ class TransaksiAdapter(
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         val item = listItems[position]
+        holder.btnKonfirmasi.isVisible = item.status.equals("belum membayar")
+
+        holder.btnKonfirmasi.setOnClickListener {
+
+        }
         holder.textViewTitle.text = item.nama
         holder.textViewBody.text = item.phone
         holder.textViewStatus.text = item.status
@@ -39,6 +45,7 @@ class TransaksiAdapter(
         var textViewlokasi = itemView.findViewById<TextView>(R.id.tv_date_transaction)
         var textViewStatus = itemView.findViewById<TextView>(R.id.tv_status_transaction)
         var textViewHarga = itemView.findViewById<TextView>(R.id.tv_amount_transaction)
+        var btnKonfirmasi = itemView.findViewById<TextView>(R.id.btn_konfirmasi)
     }
 
     interface NoteListener{

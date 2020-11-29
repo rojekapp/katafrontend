@@ -355,6 +355,27 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_ongkir_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+       >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_ongkir_list"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/list_ongkir" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <android.inputmethodservice.KeyboardView
         android:id="@+id/keyboard_view"
         android:layout_width="match_parent"

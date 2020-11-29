@@ -8,7 +8,7 @@ data class Rajaongkir(
 	val query: Query? = null,
 	val destinationDetails: DestinationDetails? = null,
 	val originDetails: OriginDetails? = null,
-	val results: List<ResultsItem?>? = null,
+	val results: ArrayList<ResultsItem?>? = null,
 	val status: Status? = null
 )
 
