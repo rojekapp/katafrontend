@@ -19,6 +19,7 @@ data class TransaksiModel(
     @ColumnInfo(name = "phone") var phone: String = "",
     @ColumnInfo(name = "status") var status: String = "Belum Membayar",
     @ColumnInfo(name = "harga") var harga: Int = 0,
-    @ColumnInfo(name = "info_bank") var info_bank: String = ""
+    @ColumnInfo(name = "info_bank") var info_bank: String = "",
+    @ColumnInfo(name = "tanggal") var tanggal: String = ""
 ) : Parcelable {
 }

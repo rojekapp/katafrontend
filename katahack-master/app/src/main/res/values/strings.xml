@@ -6,6 +6,7 @@
     <string name="transaction">Transaction</string>
     <string name="dashboard">Dashboard</string>
     <string name="copy_your_invoice_here">copy your invoice here</string>
+    <string name="alamat_try">Jl. Jend. Sudirman No.40, Kotabaru, Kec. Gondokusuman, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55224</string>
     <string name="copy_invoice">Thank you for shopping with us! Order from EzPad stuff\n\nProduk :\n%sx Masker\n\nNama Pemesan:%s\nAlamat Pemesan:%s\nno Hp pemesan:%s\nTotal harga barang : Rp%s\nOngkos Kirim : Rp10.000\nTotal yang harus dibayarkan : %s\n\nPembayaran : BCA 532 atas nama muh Harap mengirimkan foto bukti transfer kepada kami, Thank you so much</string>
     <string name="submit">Submit</string>
     <string name="copied">copied</string>
@@ -49,4 +50,5 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="invoicetest">Nama :danu Alamat :taman krajan blok a5 No hp :08213731623 Harga : 10000</string>
 </resources>

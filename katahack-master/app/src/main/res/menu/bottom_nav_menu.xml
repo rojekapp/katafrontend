@@ -11,4 +11,9 @@
         android:icon="@drawable/ic_assignment_white_24dp"
         android:title="@string/status" />
 
+    <item
+        android:id="@+id/mutasiFragment"
+        android:icon="@drawable/ic_assignment_white_24dp"
+        android:title="Mutasi" />
+
 </menu>

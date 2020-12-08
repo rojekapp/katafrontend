@@ -13,10 +13,20 @@ import com.paimon.katahack.dbLocal.TransaksiRoomDatabase
 import com.paimon.katahack.transaksiInvoice.TransaksiAdapter
 import com.paimon.katahack.transaksiInvoice.TransaksiModel
 import kotlinx.android.synthetic.main.fragment_transaksi.view.*
-import kotlinx.android.synthetic.main.keyboard_view.view.*
 import java.util.ArrayList
 
-class TransaksiFragment : Fragment() {
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
+
+/**
+ * A simple [Fragment] subclass.
+ * Use the [SiapDikirim.newInstance] factory method to
+ * create an instance of this fragment.
+ */
+class SiapDikirim : Fragment() {
+
 
     private lateinit var transaksi: TransaksiModel
     private lateinit var database: TransaksiRoomDatabase
@@ -26,7 +36,7 @@ class TransaksiFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        root = inflater.inflate(R.layout.fragment_transaksi, container, false)
+        root = inflater.inflate(R.layout.fragment_belum, container, false)
 
         database = TransaksiRoomDatabase.getDatabase(context!!)
         dao = database.getNoteDao()
@@ -40,7 +50,7 @@ class TransaksiFragment : Fragment() {
         val database = TransaksiRoomDatabase.getDatabase(context!!)
         val dao = database.getNoteDao()
         val listItems = arrayListOf<TransaksiModel>()
-        listItems.addAll(dao.getByStatus("Sudah Membayar"))
+        listItems.addAll(dao.getByStatus("Siap Dikirim"))
         setupRecyclerView(listItems)
     }
 
@@ -54,7 +64,7 @@ class TransaksiFragment : Fragment() {
                 }
             })
             layoutManager =
-                    LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+                LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         }
     }
 

@@ -225,6 +225,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/copy_your_invoice_here"
+            android:text="@string/invoicetest"
             android:textColor="@color/black"
             android:textColorHint="#d4d4d4"
             app:layout_constraintBottom_toTopOf="@id/btn_invoice"

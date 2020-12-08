@@ -8,13 +8,13 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.paimon.katahack.R
 
-class TransaksiAdapter(
-    private val listItems: ArrayList<TransaksiModel>,
-    private val listener: NoteListener
-) : RecyclerView.Adapter<TransaksiAdapter.NoteViewHolder>() {
+class TransaksiAdapter2(
+        private val listItems: ArrayList<TransaksiModel>,
+        private val listener: NoteListener
+) : RecyclerView.Adapter<TransaksiAdapter2.NoteViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_status, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_transaction, parent, false)
         return NoteViewHolder(view)
     }
 
@@ -28,6 +28,7 @@ class TransaksiAdapter(
         holder.textViewBody.text = item.phone
         holder.textViewStatus.text = item.status
         holder.textViewlokasi.text = item.lokasi
+        holder.textViewTanggal.text = item.tanggal
         holder.textViewHarga.text = item.harga.toString()
         holder.itemView.setOnClickListener {
             listener.OnItemClicked(item)
@@ -40,6 +41,7 @@ class TransaksiAdapter(
         var textViewlokasi = itemView.findViewById<TextView>(R.id.tv_date_transaction)
         var textViewStatus = itemView.findViewById<TextView>(R.id.tv_status_transaction)
         var textViewHarga = itemView.findViewById<TextView>(R.id.tv_amount_transaction)
+        var textViewTanggal = itemView.findViewById<TextView>(R.id.tv_tanggal_transaksi)
     }
 
     interface NoteListener{

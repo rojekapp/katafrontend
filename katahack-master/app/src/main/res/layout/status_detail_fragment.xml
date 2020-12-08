@@ -150,7 +150,7 @@
             android:layout_marginEnd="16dp"
             android:drawablePadding="8dp"
             android:drawableTint="@color/black"
-            android:text="1x "
+            android:text="4x "
             android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -166,6 +166,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:drawablePadding="8dp"
+            android:text="Masker"
             android:drawableTint="@color/black"
             android:textColor="@color/black"
             android:textSize="14sp"
@@ -184,38 +185,21 @@
             app:layout_constraintTop_toBottomOf="@id/tv_jumlah_produk_pembelian" />
 
         <Button
-            android:id="@+id/btn_sudah_bayar"
-            android:layout_width="0dp"
+            android:id="@+id/btn_konfirmasi"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/rounded_blue_background"
-            android:text="Sudah Dibayar"
+            android:text="Konfirmasi Status"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toEndOf="@id/btn_ingatkan_bayar"
             app:layout_constraintTop_toBottomOf="@id/tv_jumlah_produk_pembelian" />
 
-        <Button
-            android:id="@+id/btn_ingatkan_bayar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/rounded_blue_background"
-            android:text="Ingatkan Pembayaran"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@id/btn_sudah_bayar"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_jumlah_produk_pembelian" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

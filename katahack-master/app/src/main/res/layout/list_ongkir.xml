@@ -17,6 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
+        android:textColor="@color/black"
         android:layout_marginBottom="5dp"
         android:text="JNE" />
 
@@ -35,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_harga_pengiriman"
         android:layout_marginBottom="10dp"
+        android:textColor="@color/black"
         android:text="Rp.100.000" />
 
 </RelativeLayout>

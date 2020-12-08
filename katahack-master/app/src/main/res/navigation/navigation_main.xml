@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_status"
-        android:name="com.paimon.katahack.ui.fragment.transaksi.TransaksiFragment"
+        android:name="com.paimon.katahack.ui.fragment.transaksi.HomeTransaksi"
         android:label="status_fragment"
-        tools:layout="@layout/fragment_transaksi">
+        tools:layout="@layout/fragment_home_transaksi">
         <action
             android:id="@+id/action_navigation_status_to_statusDetailFragment"
             app:destination="@id/statusDetailFragment" />
@@ -29,4 +29,8 @@
             android:name="invoice"
             app:argType="com.paimon.katahack.model.InvoiceData" />
     </fragment>
+    <fragment
+        android:id="@+id/mutasiFragment"
+        android:name="com.paimon.katahack.ui.fragment.Mutasi.MutasiFragment"
+        android:label="MutasiFragment" />
 </navigation>

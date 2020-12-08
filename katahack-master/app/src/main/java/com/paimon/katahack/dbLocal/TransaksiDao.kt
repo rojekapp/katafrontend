@@ -23,4 +23,7 @@ interface TransaksiDao {
 
     @Query("SELECT * FROM transaksi WHERE status = :status")
     fun getByStatus(status: String) : List<TransaksiModel>
+
+    @Query("UPDATE transaksi SET status = :status WHERE id =:id")
+    fun updateStatus(status: String?, id: Int)
 }

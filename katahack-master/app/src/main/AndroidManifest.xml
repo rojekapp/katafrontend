@@ -13,10 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".ui.fragment.transaksi.DetailTransaksi"></activity>
         <activity
             android:name=".transaksiInvoice.DetailTransaksiActivity"
             android:label="@string/title_activity_detail_transaksi"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
